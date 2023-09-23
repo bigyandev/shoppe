@@ -1,5 +1,5 @@
 import React from "react"
-import { useCart } from "../../context/CardContext"
+import { useCart } from "../context/CardContext"
 
 const ProductList = ({ title, image, qty, color, size, price, id, selectedQty }) => {
     const { handleQty, removeFromCart, totalIndividualPrice } = useCart()

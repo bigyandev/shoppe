@@ -1,6 +1,6 @@
 import React from "react"
 
-import homePageImg from "../img/homepage.jpg"
+import homePageImg from "../assets/homepage.jpg"
 import "./HomeHeader.css"
 
 const HomeHeader = () => {
@@ -17,11 +17,11 @@ const HomeHeader = () => {
                 <p>This season, our new summer collection embraces
                     designs to provide comfort and style -
                     ensuring you're well-prepared for whatever comes your way.</p>
-                <p className="explore-class" onClick={(e) => window.scrollTo(0,500)}>explore our product
-                <i className="bi bi-arrow-right"></i></p>
+                <p className="explore-class" onClick={(e) => window.scrollTo(0, 500)}>explore our product
+                    <i className="bi bi-arrow-right"></i></p>
             </div>
         </div>
-       
+
     </>
 }
 export default HomeHeader

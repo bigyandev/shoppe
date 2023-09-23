@@ -1,7 +1,7 @@
-import React, { useEffect, useRef } from "react"
+import React from "react"
 import { NavLink, useLocation } from "react-router-dom"
 import { useCart } from "../../context/CardContext"
-import { useHandleScroll } from "../../hooks/useHandleScroll"
+import {useHandleScroll} from "../../hooks/useHandleScroll.js"
 
 import "./NavBar.css"
 

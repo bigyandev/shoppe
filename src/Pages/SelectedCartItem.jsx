@@ -1,13 +1,14 @@
 import React from "react"
 
-import { useCart } from "../../context/CardContext"
-import ProductList from "../utilities/ProductList"
-import TotalPrice from "../utilities/TotalPrice"
+import { useCart } from "../context/CardContext"
+import ProductList from "../components/ProductList"
+import TotalPrice from "../components/TotalPrice"
+import { OuterLayout } from "../Layout/OuterLayout"
 
 const SelectedItemPage = () => {
     const { card } = useCart()
     return (
-        <>
+        <OuterLayout>
             <div className="container">
                 <div className="row">
                     <h1>SHOPPING BAG</h1>
@@ -37,7 +38,7 @@ const SelectedItemPage = () => {
                     </div>
                 </div>
             </div>
-        </>
+        </OuterLayout>
     )
 }
 export default SelectedItemPage

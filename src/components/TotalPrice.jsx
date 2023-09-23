@@ -1,5 +1,5 @@
 import React from "react"
-import { useCart } from "../../context/CardContext"
+import { useCart } from "../context/CardContext"
 
 const TotalPrice = () => {
  const {card} = useCart()

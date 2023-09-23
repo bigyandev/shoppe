@@ -1,6 +1,6 @@
 import React from "react"
 import { Link } from "react-router-dom"
-import { useCart, useData } from "../../context/ApiContext"
+import { useData } from "../context/ApiContext"
 
 import "./CartProduct.css"
 

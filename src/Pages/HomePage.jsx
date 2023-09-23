@@ -1,8 +1,8 @@
 import React from "react"
 
-import AboutContent from "../utilities/AboutContent"
-import HomeHeader from "../utilities/HomeHeader"
-import CartProduct from "../utilities/CartProduct"
+import AboutContent from "../components/AboutContent"
+import HomeHeader from "../components/HomeHeader"
+import CartProduct from "../components/CartProduct"
 
 const HomePage = () => {
     return <>

@@ -2,8 +2,8 @@ import React, { useRef } from "react"
 import { useState } from "react"
 import { useParams } from "react-router-dom"
 
-import { useData } from "../../context/ApiContext"
-import { useCart } from "../../context/CardContext"
+import { useData } from "../context/ApiContext"
+import { useCart } from "../context/CardContext"
 
 
 import "./IndividualProductPage.css"
