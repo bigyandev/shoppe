@@ -7,11 +7,15 @@ import { OuterLayout } from "../Layout/OuterLayout"
 
 const DisplayItem = () => {
     const { products } = useData()
-    const { addToCart} = useCart()
+    const { addToCart,card,modal } = useCart()
+    console.log(products)
     return <OuterLayout>
-    <div style={{position: "relative"}}>
-    <IndividualProductPage products={products} addToCart={addToCart}/>
-    </div>
+        <div style={{ position: "relative" }}>
+            <IndividualProductPage products={products}
+                addToCart={addToCart}
+                modal={modal} 
+                card={card}/>
+        </div>
     </OuterLayout>
 
 }

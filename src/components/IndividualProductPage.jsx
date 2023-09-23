@@ -1,9 +1,11 @@
 import React, { useRef } from "react"
 import { useParams } from "react-router-dom"
 
+import ModalBox from "../components/ModalBox"
+
 import "./IndividualProductPage.css"
 
-const IndividualProductPage = ({products, addToCart}) => {
+const IndividualProductPage = ({products, addToCart,modal,card}) => {
     const { id } = useParams()
     const mySize = useRef([])
     const myColor = useRef([])
@@ -14,9 +16,9 @@ const IndividualProductPage = ({products, addToCart}) => {
     }
 
     return (
-        <div className="product">
+        <div className={`${modal} ? "overlay": "product"`}>
             {products.map((product) => product.id === parseFloat(id) ?
-                <div className="container">
+                <div className="container" style={{marginTop: "10px"}}>
                     <div className= "d-flex jusitfy-content-center align-items-center gap-3"
                         style={{ height: "100%", width: "100%"}}>
                         <div className="image">
@@ -43,7 +45,7 @@ const IndividualProductPage = ({products, addToCart}) => {
                                         className="btn-size">{col}</div>
                                 })}
                             </div>
-                           
+                           {card.map((card) => card.id === parseFloat(id) && modal ? <ModalBox/> : null)}
                             <h5>${product.price}</h5>
                             <button className="btn btn-lg btn-dark"
                                 onClick={() => addToCart(product, mySize.current, myColor.current)} style={{ width: "100%" }}>ADD TO CART</button>

@@ -1,18 +1,31 @@
-.modalbox {
-    background-color: white;
+.box {
+    display: flex;
+    justify-content: space-between;
+    background-color: #f1f1f1;
     color: black;
     padding: 10px;
-    text-align: center;
-    height: 300px;
+    height: 70px;
     width: 300px;
-    border: 2px solid black;
+    border-radius: 20px;
+    border: 2px solid white;
+    box-shadow: 2px 3px 3px grey;
     position: absolute;
-    top: 35%;
-    left: 40%;
+    top: 0%;
+    right: 0.5%;
 }
-.modalbox h2 {
+.box p {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100%;
+    width: 100%;
+    text-align: center;
 }
+.close {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    height: 60%;
+    cursor: pointer;
+}
+

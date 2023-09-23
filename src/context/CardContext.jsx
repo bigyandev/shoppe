@@ -4,14 +4,16 @@ export const CardContext = createContext(null);
 
 export const CardProvider = ({ children }) => {
     const [card, setCard] = useState([])
+    const [modal, setModal] = useState(false)
 
     const addToCart = (item, mySize, myColor) => {
         const selectedSize = mySize.find((size) => size.classList.contains("addborder"));
         const selectedColor = myColor.find((color) => color.classList.contains("addborder"));
         const isItemInCart = card.find((card) => card.id === item.id)
 
-        if(!selectedColor || !selectedSize) {
+        if (!selectedColor || !selectedSize) {
             alert("please select the size and color")
+            return;
         }
 
         if (!isItemInCart) {
@@ -19,23 +21,22 @@ export const CardProvider = ({ children }) => {
                 ...item,
                 size: selectedSize.innerHTML,
                 color: selectedColor.innerHTML,
-                selectedQty: 1
+                selectedQty: 1,
             }
             setCard([...card, newItem])
         }
         else {
-            alert("already added in the cart")
+          setModal(true)
         }
+       
     }
 
-
     const handleQty = (newQty, itemId) => {
-        const updatedCard = card.map((item) => 
-           item.id === itemId ? {...item, selectedQty:newQty} : item
+        const updatedCard = card.map((item) =>
+            item.id === itemId ? { ...item, selectedQty: newQty } : item
         )
         setCard(updatedCard)
     }
-
 
     const removeFromCart = (id) => {
         const newCard = card.filter((card) => card.id !== id)
@@ -50,7 +51,7 @@ export const CardProvider = ({ children }) => {
             return card.length
         }
     }
-    return <CardContext.Provider value={{ addToCart, handleQty, removeFromCart, totalIndividualPrice, totalProducts, card }}>{children}</CardContext.Provider>
+    return <CardContext.Provider value={{ addToCart, handleQty, removeFromCart, totalIndividualPrice, totalProducts, card,modal, setModal }}>{children}</CardContext.Provider>
 
 }
 export const useCart = () => {
