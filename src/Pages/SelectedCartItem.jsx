@@ -8,7 +8,7 @@ import { OuterLayout } from "../Layout/OuterLayout"
 const SelectedItemPage = () => {
     const { card } = useCart()
     return (
-        <OuterLayout>
+        <>
             <div className="container">
                 <div className="row">
                     <h1>SHOPPING BAG</h1>
@@ -38,7 +38,7 @@ const SelectedItemPage = () => {
                     </div>
                 </div>
             </div>
-        </OuterLayout>
+        </>
     )
 }
 export default SelectedItemPage

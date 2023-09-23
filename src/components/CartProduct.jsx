@@ -1,17 +1,13 @@
 import React from "react"
 import { Link } from "react-router-dom"
-import { useData } from "../context/ApiContext"
 
 import "./CartProduct.css"
 
-
-const CartProduct = () => {
-    const { products, loading } = useData()
-
+const CartProduct = ({products}) => {
     return (
         <div className="container">
             <div className="row">
-                {loading ? "loading..." : products.map((product) =>
+                {products.map((product) =>
                     <div className="col-lg-4 col-sm-6 col-xs-12">
                         <Link
                             style={{

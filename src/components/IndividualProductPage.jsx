@@ -1,47 +1,18 @@
 import React, { useRef } from "react"
-import { useState } from "react"
 import { useParams } from "react-router-dom"
 
-import { useData } from "../context/ApiContext"
-import { useCart } from "../context/CardContext"
-
-
 import "./IndividualProductPage.css"
-import ModalBox from "./ModalBox"
 
-const IndividualProductPage = () => {
+const IndividualProductPage = ({products, addToCart}) => {
     const { id } = useParams()
-    const { products } = useData()
-    const { addToCart,modal } = useCart()
     const mySize = useRef([])
     const myColor = useRef([])
-   
 
-    const addSizeBorder = (e) => {
-        removeSizeBorder()
-        e.target.classList.add("addborder")
-    }
-
-    const addColorBorder = (e) => {
-        removeColorBorder()
-        e.target.classList.add("addborder")
+    const addBorder = (element, e) => {
+      element.current.forEach((el) => el.classList.remove("addborder"))
+      e.target.classList.add("addborder")
     }
 
-    const removeSizeBorder = () => {
-        mySize.current.forEach((size) => {
-            if (size.classList.contains("addborder")) {
-                size.classList.remove("addborder")
-            }
-        })
-    }
-    const removeColorBorder = () => {
-        myColor.current.forEach((size) => {
-            if (size.classList.contains("addborder")) {
-                size.classList.remove("addborder")
-            }
-        })
-    }
-    
     return (
         <div className="product">
             {products.map((product) => product.id === parseFloat(id) ?
@@ -60,7 +31,7 @@ const IndividualProductPage = () => {
                             <div className="btn-groups">
                                 {product.sizes.map((size, index) => {
                                     return <div ref={el => mySize.current[index] = el}
-                                        onClick={(e) => addSizeBorder(e)}
+                                        onClick={(e) => addBorder(mySize,e)}
                                         className="btn-size">{size}</div>
                                 })}
                             </div>
@@ -68,7 +39,7 @@ const IndividualProductPage = () => {
                             <div className="btn-groups" >
                                 {product.color.map((col, index) => {
                                     return <div ref={el => myColor.current[index] = el}
-                                        onClick={(e) => addColorBorder(e)}
+                                        onClick={(e) => addBorder(myColor,e)}
                                         className="btn-size">{col}</div>
                                 })}
                             </div>

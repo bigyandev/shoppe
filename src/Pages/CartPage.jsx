@@ -6,7 +6,6 @@ import SelectedItemPage from "./SelectedCartItem"
 
 const CartPage = () => {
     const { card } = useCart()
-    console.log(card)
     return (
         <OuterLayout>
             {card.length ? <SelectedItemPage /> : <NoCartItemPage />}
