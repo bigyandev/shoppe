@@ -16,7 +16,7 @@ const IndividualProductPage = ({products, addToCart,modal,card}) => {
     }
 
     return (
-        <div className={`${modal} ? "overlay": "product"`}>
+        <div className="product">
             {products.map((product) => product.id === parseFloat(id) ?
                 <div className="container" style={{marginTop: "10px"}}>
                     <div className= "d-flex jusitfy-content-center align-items-center gap-3"

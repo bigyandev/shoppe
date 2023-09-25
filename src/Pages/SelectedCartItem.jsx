@@ -3,7 +3,6 @@ import React from "react"
 import { useCart } from "../context/CardContext"
 import ProductList from "../components/ProductList"
 import TotalPrice from "../components/TotalPrice"
-import { OuterLayout } from "../Layout/OuterLayout"
 
 const SelectedItemPage = () => {
     const { card } = useCart()

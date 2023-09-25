@@ -3,6 +3,7 @@ import { NavLink, useLocation } from "react-router-dom"
 import { useCart } from "../../context/CardContext"
 import {useHandleScroll} from "../../hooks/useHandleScroll.js"
 
+
 import "./NavBar.css"
 
 const NavBar = () => {
@@ -11,7 +12,8 @@ const NavBar = () => {
     const { scroll } = useHandleScroll()
     const inHomePage = pathname === "/"
     const {totalProducts} = useCart()
-
+   
+   
     const changeColor = () => {
         if (scroll && inHomePage) {
             return "text-dark"

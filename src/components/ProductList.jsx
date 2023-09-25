@@ -3,7 +3,7 @@ import { useCart } from "../context/CardContext"
 
 const ProductList = ({ title, image, qty, color, size, price, id, selectedQty }) => {
     const { handleQty, removeFromCart, totalIndividualPrice } = useCart()
-
+    
     return (
         <div className="d-flex align-items-start justify-content-start flex-column"
             style={{ minHeight: "140px", width: "100%" }}>
