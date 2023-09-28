@@ -1,0 +1,60 @@
+.formPage {
+    background-color: #4158D0;
+    background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%)
+}
+.login-card {   
+    background-color:white;
+    border: 1px solid #f1f1f1f1;
+    height: 500px;
+    width: 800px;
+    perspective: 1000px;
+    box-shadow: 4px 3px 3px black;
+}
+.inner-card {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+}
+.front-card{
+    height: 100%;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+}
+.form-image {
+ height: 100%;
+ display: flex;
+ justify-content: start;
+ align-items: center;
+ width: 50% !important;
+ object-fit: contain;
+}
+
+
+input {
+    width: 80%;
+    height: 30px;
+    padding: 10px;
+    border-radius: 5px;
+}
+select {
+    width: 89%;
+    height: 40px;
+    padding: 10px;
+}
+button {
+    padding: 8px 10px;
+
+}
+.link {
+    text-decoration: none;
+    color: black;
+    text-transform: capitalize;
+}
