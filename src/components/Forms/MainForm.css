@@ -5,7 +5,7 @@
 .login-card {   
     background-color:white;
     border: 1px solid #f1f1f1f1;
-    height: 500px;
+    height: 550px;
     width: 800px;
     perspective: 1000px;
     box-shadow: 4px 3px 3px black;
@@ -26,7 +26,7 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    gap: 10px;
+    gap: 9px;
 }
 .form-image {
  height: 100%;

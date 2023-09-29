@@ -1,12 +1,14 @@
 import React from "react"
 import { NavLink, useLocation } from "react-router-dom"
 import { useCart } from "../../context/CardContext"
+import { useAuth } from "../../context/AuthContext"
 import {useHandleScroll} from "../../hooks/useHandleScroll.js"
 
 
 import "./NavBar.css"
 
 const NavBar = () => {
+    const {currentUser} = useAuth()
     const location = useLocation()
     const { pathname } = location;
     const { scroll } = useHandleScroll()
@@ -42,12 +44,12 @@ const NavBar = () => {
                 <ul className="navbar-nav">
                     <li className="nav-item">
                         <NavLink to="/cart"
-                            className={`nav-link ${changeColor()}`}>MY BAG<span>{totalProducts() ? `(${totalProducts()})` : ""}</span>
+                            className={`nav-link ${changeColor()}`}>MY BAG{currentUser ? <span>{totalProducts() ? `(${totalProducts()})` : ""}</span>: null}
                         </NavLink>
                     </li>
                     <li className="nav-item">
-                        <NavLink to="/login"
-                            className={`nav-link ${changeColor()}`}>ACCOUNT
+                        <NavLink to={currentUser ? "/dashboard" : "/login"}
+                            className={`nav-link ${changeColor()}`}>{currentUser? currentUser.email.split("@")[0].toUpperCase() : "ACCOUNT"}
                         </NavLink>
                     </li>
                 </ul>
