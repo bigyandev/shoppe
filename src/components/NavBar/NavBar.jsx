@@ -15,7 +15,7 @@ const NavBar = () => {
     const inHomePage = pathname === "/"
     const {totalProducts} = useCart()
    
-   
+    console.log(currentUser && currentUser.uid)
     const changeColor = () => {
         if (scroll && inHomePage) {
             return "text-dark"

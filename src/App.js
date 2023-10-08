@@ -5,7 +5,6 @@ import { AuthProvider } from "./context/AuthContext.jsx";
 
 import './App.css';
 
-
 function App() {
   return <>
     <DataProvider>

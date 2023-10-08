@@ -7,6 +7,7 @@ export const CardContext = createContext(null);
 export const CardProvider = ({ children }) => {
     const [card, setCard] = useState(getCartFromLocalStorage())
     const [modal, setModal] = useState(false)
+    
     const addToCart = (item, mySize, myColor) => {
         const selectedSize = mySize.find((size) => size.classList.contains("addborder"));
         const selectedColor = myColor.find((color) => color.classList.contains("addborder"));
@@ -16,7 +17,6 @@ export const CardProvider = ({ children }) => {
             alert("please select the size and color")
             return;
         }
-
         if (!isItemInCart) {
             const newItem = {
                 ...item,
@@ -24,7 +24,6 @@ export const CardProvider = ({ children }) => {
                 color: selectedColor.innerHTML,
                 selectedQty: 1,
             }
-
             setCard([...card, newItem])
         }
         else {

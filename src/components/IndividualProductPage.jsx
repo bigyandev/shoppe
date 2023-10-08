@@ -2,6 +2,7 @@ import React, { useRef } from "react"
 import { useParams } from "react-router-dom"
 
 import ModalBox from "../components/ModalBox"
+import { useAuth } from "../context/AuthContext"
 
 import "./IndividualProductPage.css"
 
@@ -9,6 +10,7 @@ const IndividualProductPage = ({products, addToCart,modal,card}) => {
     const { id } = useParams()
     const mySize = useRef([])
     const myColor = useRef([])
+    const {currentUser} = useAuth()
 
     const addBorder = (element, e) => {
       element.current.forEach((el) => el.classList.remove("addborder"))
@@ -48,7 +50,7 @@ const IndividualProductPage = ({products, addToCart,modal,card}) => {
                            {card.map((card) => card.id === parseFloat(id) && modal ? <ModalBox/> : null)}
                             <h5>${product.price}</h5>
                             <button className="btn btn-lg btn-dark"
-                                onClick={() => addToCart(product, mySize.current, myColor.current)} style={{ width: "100%" }}>ADD TO CART</button>
+                                onClick={() => addToCart(product, mySize.current, myColor.current,currentUser.multiFactor.uid)} style={{ width: "100%" }}>ADD TO CART</button>
                         </div>
                     </div>
                    
