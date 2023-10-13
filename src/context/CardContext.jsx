@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useState } from "react"
 import { useEffect } from "react";
+import { saveUserCart } from "../helper/firebaseStorage";
 import { getCartFromLocalStorage, setCartFromLocalStorage } from "../helper/LocalStorage";
 
 export const CardContext = createContext(null);
@@ -58,7 +59,7 @@ export const CardProvider = ({ children }) => {
     useEffect(() => {
         setCartFromLocalStorage(card)
     }, [card])
-    return <CardContext.Provider value={{ addToCart, handleQty, removeFromCart, totalIndividualPrice, totalProducts, card, modal, setModal }}>{children}</CardContext.Provider>
+    return <CardContext.Provider value={{ setCard, addToCart, handleQty, removeFromCart, totalIndividualPrice, totalProducts, card, modal, setModal }}>{children}</CardContext.Provider>
 
 }
 export const useCart = () => {

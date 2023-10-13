@@ -8,11 +8,11 @@ import './App.css';
 function App() {
   return <>
     <DataProvider>
+    <AuthProvider>
       <CardProvider>
-        <AuthProvider>
           <AppRoutes />
-        </AuthProvider>
       </CardProvider>
+      </AuthProvider>
     </DataProvider>
   </>
 }

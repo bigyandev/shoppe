@@ -18,20 +18,19 @@ export const DataProvider = ({ children }) => {
                     color: ["WHITE", "BLACK"],
                     quantity: [1, 2, 3, 4, 5],
                 }));
-
+                
                 setProducts(formattedProducts);
                 setLoading(false);
             } catch (error) {
-                console.error("Error fetching data:", error);
+                console.log(error.message)
                 setLoading(false);
             }
         };
-
         fetchData();
     }, []);
 
     return (
-        <CartContext.Provider value={{ products, loading }}>
+        <CartContext.Provider value={{ products,loading }}>
             {children}
         </CartContext.Provider>
     );

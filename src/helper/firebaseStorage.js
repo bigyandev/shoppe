@@ -1,30 +1,27 @@
 import React, { useEffect, useState } from "react"
 import { database } from "../firebase"
-import { collection, doc, getDocs,setDoc, updateDoc } from "firebase/firestore"
+import { addDoc, collection, doc, getDocs, setDoc, updateDoc } from "firebase/firestore"
 
 
 
-const usercollectionRef = collection(database, "users")
-export const getUsers = async () => {
+// for users  userId
+export const saveUsersId = async (emailRef, userID) => {
     try {
-        const data = await getDocs(usercollectionRef)
-        console.log(data)
-        console.log("accessed")
+        await setDoc(doc(database, "users", userID), { email: emailRef, product: {} })
     }
     catch (err) {
-        console.log(err)
+        console.log(err.message)
     }
 }
-// for users data and userId
-export const saveUsersId =  (emailRef,currentUser) => {
+export const saveUserCart = async (newItem) => {
     try {
-        return  setDoc(doc(database, "users"), {email:emailRef})
+
+        await setDoc(doc(database, "users"), newItem)
     }
     catch (err) {
-        console.log(err)
+        console.log(err.message)
     }
 }
-
 
 
 

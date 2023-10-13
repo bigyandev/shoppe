@@ -1,10 +1,10 @@
 import React, { useRef, useState, useEffect } from "react"
-import { Link, useNavigate, useRevalidator } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { OuterLayout } from "../../Layout/OuterLayout.jsx"
 import LoginForm from "./LoginForm.jsx"
 import { useAuth } from "../../context/AuthContext.jsx"
 import { Alert } from "react-bootstrap"
-import { getUsers, saveUsersId } from "../../helper/firebaseStorage.js"
+import {  saveUsersId } from "../../helper/firebaseStorage.js"
 
 import "./MainForm.css"
 import formImage from "../../assets/img.jpg"
@@ -12,14 +12,15 @@ import formImage from "../../assets/img.jpg"
 
 const RegisterForm = () => {
     const navigate = useNavigate()
-    const { signUp, userId } = useAuth()
+    const { signUp,currentUser} = useAuth()
     const emailRef = useRef()
     const passwordRef = useRef()
     const repasswordRef = useRef()
     const [error, setError] = useState()
     const [loading, setLoading] = useState(false)
-    const {currentUser} = useAuth()
+    
   
+
     const handleRegister = async (e) => {
         e.preventDefault()
         if (passwordRef.current.value !== repasswordRef.current.value) {
@@ -28,20 +29,17 @@ const RegisterForm = () => {
         try {
             setError("")
             setLoading(true)
+            console.log("current", currentUser)
             await signUp(emailRef.current.value, passwordRef.current.value)
-            await saveUsersId(emailRef.current.value,currentUser)
+            await saveUsersId(currentUser?.multiFactor.user.uid)
             navigate("/")
         }
         catch (err) {
             setError(err.message)
         }
         setLoading(false)
-
     }
-    useEffect(() => {
-        getUsers()
-    })
-
+   
     return (
         <OuterLayout>
             <form onSubmit={handleRegister} onChange={() => setError()}>
